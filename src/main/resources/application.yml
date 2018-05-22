@@ -1,0 +1,24 @@
+
+server:
+  port: 8080
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          azure:
+            client-id: 094cbebc-86df-4a19-84e7-38981435eda7
+            client-secret: NFgQoqNmPgXIVk4WRqgdn7BHuoq/+K6UZ8InSHL5t5Q=
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "http://localhost:8080/login/oauth2/code/azure"
+            scope: openid,https://graph.microsoft.com/user.read
+            client-name: Azure
+        provider:
+          azure:
+            authorization-uri: https://login.microsoftonline.com/ec84cd39-8eb1-435a-909b-1b728c03c54b/oauth2/authorize
+            token-uri: https://login.microsoftonline.com/ec84cd39-8eb1-435a-909b-1b728c03c54b/oauth2/token
+            user-info-uri: https://login.microsoftonline.com/ec84cd39-8eb1-435a-909b-1b728c03c54b/openid/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: https://login.microsoftonline.com/ec84cd39-8eb1-435a-909b-1b728c03c54b/discovery/keys
