@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+#    org.springframework.boot.autoconfigure: DEBUG
+          
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          azure:
+            client-id: a39b43bc-7924-49c5-94de-b34bd8244e8d
+            client-secret: aI5l8qJRxmQZxqB2Sf9O+IesDUOUR+kpgc4cz5gwT5U=
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: Azure
+        provider:
+          azure:
+            authorization-uri: https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/authorize
+            token-uri: https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token
+            user-info-uri: https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/openid/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/discovery/keys            
